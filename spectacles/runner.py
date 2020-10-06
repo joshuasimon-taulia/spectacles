@@ -35,6 +35,7 @@ class LookerBranchManager:
         self.import_projects = import_projects
 
         # Get the current branch so we can return to it afterwards
+        self.client.update_workspace(self.project, self.workspace)
         self.original_branch = self.client.get_active_branch_name(self.project)
         self.temp_branches: List[BranchState] = []
 
